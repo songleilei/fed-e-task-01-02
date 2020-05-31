@@ -4,7 +4,7 @@
 
 #### 简单题
 
-1. ##### 描述引用计数的工作原理和优缺点
+1. #### 描述引用计数的工作原理和优缺点
 
    工作原理：给对象添加一个计数器，被引用则计数器加 1；引用失效，计数器减 1。当计数器为 0 时， 即不被引用，则回收该对象。
 
@@ -26,7 +26,7 @@
    2. 清除对象：先将活动对象和非活动对象进行整理，移动对象位置，然后进行清除
    3. 回收空间
 
-3. ##### 描述 V8 中新生代存储区垃圾回收的流程
+3. #### 描述 V8 中新生代存储区垃圾回收的流程
 
    流程：程序主线程执行完毕进行垃圾回收时，先将 From 区的对象进行标记整理，然后将 From 区的活动对象都复制到 To 区。清除 From 区 ，最后将两个区互换。一个对象多次复制过程中，依旧为活动对象，则将该活动对象移动至老生代，即晋升。
 
@@ -38,7 +38,7 @@
 
 #### 代码题 1
 
-##### 基于以下代码完成下面的四个练习
+#### 基于以下代码完成下面的四个练习
 
 ```javascript
 const fp = require("lodash/fp");
@@ -85,7 +85,7 @@ const cars = [
 ];
 ```
 
-##### 练习 1：
+#### 练习 1：
 
 使用函数组合 fp.flowRight() 重新实现下面这个函数
 
@@ -100,7 +100,7 @@ let isLastInStock = function (cars) {
 const isLastInStock = fp.flowRight(fp.prop("in_stock"), fp.last);
 ```
 
-##### 练习 2：
+#### 练习 2：
 
 使用 fp.flowRight()、fp.prop() 和 fp.first() 获取第一个 car 的 name
 
@@ -108,7 +108,7 @@ const isLastInStock = fp.flowRight(fp.prop("in_stock"), fp.last);
 const isFirstInStock = fp.flowRight(fp.prop("name"), fp.first);
 ```
 
-##### 练习 3：
+#### 练习 3：
 
 使用帮助函数 \_average 重构 averageDollarValue，使用函数组合的方式实现
 
@@ -132,7 +132,7 @@ const averageDollarValue = fp.flowRight(
 );
 ```
 
-##### 练习 4：
+#### 练习 4：
 
 使用 flowRight 写一个 sanitizeNames() 函数，返回一个下划线连接的小写字符串，把数组中的 name 转换为这种形式：例如：sanitizeNames(['Hello World']) => ["hello_world"]
 
@@ -159,7 +159,7 @@ console.log(sanitizeNames(arr));
 
 #### 代码题 2
 
-##### 基于下面提供的代码，完成后续的四个练习
+#### 基于下面提供的代码，完成后续的四个练习
 
 ```javascript
 class Container {
@@ -200,7 +200,7 @@ module.exports = {
 };
 ```
 
-##### 练习 1：
+#### 练习 1：
 
 使用 fp.add(x, y) 和 fp.map(f, x) 创建一个能让 functor 里的值增加的函数 ex1
 
@@ -214,7 +214,7 @@ let maybe = Maybe.of([5, 6, 1]);
 let ex1 = maybe.map(fp.map(fp.add(1)));
 ```
 
-##### 练习 2：
+#### 练习 2：
 
 实现一个函数 ex2，能够使用 fp.first 获取列表的第一个元素
 
@@ -228,7 +228,7 @@ let xs = Container.of(["do", "ray", "me", "fa", "so", "la", "ti", "do"]);
 let ex2 = xs.map(fp.first);
 ```
 
-##### 练习 3：
+#### 练习 3：
 
 实现一个函数 ex3，使用 safeProp 和 fp.first 找到 user 的名字的首字母
 
@@ -246,7 +246,7 @@ let user = { id: 2, name: "Albert" };
 let ex3 = safeProp("name")(user).map(fp.first);
 ```
 
-##### 练习 4：
+#### 练习 4：
 
 使用 Maybe 重写 ex4，不要有 if 语句
 
